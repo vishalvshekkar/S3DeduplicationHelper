@@ -52,7 +52,7 @@ Ensure that you have swift >=5 installed.
 swift package update
 ```
 
-4. [Optional] Generate an Xcode project from these files, if you like using Xcode. You can skip otherwise.
+4. (Optional) Generate an Xcode project from these files, if you like using Xcode. You can skip otherwise.
 ```
 swift package generate-xcodeproj
 ```
@@ -62,23 +62,23 @@ swift package generate-xcodeproj
 swift build
 ```
 
-5. Run your tool just for the sake of it.
+6. (Optional | Not required) Run your tool just for the sake of it.
 ```
 swift run
 ```
 Note: This would not do anything meaningful as the tool was invoked without any parameters.
 
-6. Create a release build.
+7. Create a release build.
 ```
 swift build -c release
 ```
 
-6. Change directory to where your executable exists. That would be under the `.build` folder which is hidden.
+8. Change directory to where your executable exists. That would be under the `.build` folder which is hidden.
 ```
 cd .build/release
 ```
 
-7. Invoke the CLI tool as shown below
+9. Invoke the CLI tool as shown below
 ```
 swift run S3DeduplicationHelper <S3_BUCKET_NAME> <S3_BUCKET_KEY_PREFIX> <PATH_TO_A_LOCAL_DIRECTORY_TO_STORE_OUTPUT_CSV>
 ```
