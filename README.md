@@ -100,6 +100,7 @@ Parameter | Description
 - [X] Generate CSV forn posterity and out-of-tool use and analysis.
 - [X] Find duplicates in listed objets using `ETag`.
 - [ ] Add tests.
+- [ ] Document code better.
 - [ ] Improvement to the exposed CLI.
 - [ ] Add help to the CLI.
 - [ ] Consider size of file as a parameter in finding duplicates
