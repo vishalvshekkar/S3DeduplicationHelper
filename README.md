@@ -2,6 +2,8 @@
 
 A swift-cli tool to fetch all objects in an S3 bucket filtered by a key prefix and provide mechasnisms to find duplicates among those keys using eTag and size of each objects.
 
+> Note: This is not production-ready yet. I haven't extensively tested it. The tool does not yet contain any destructive operations for this reason. Read Contributions section to help develop this.
+
 ## What does this tool do?
 
 Each object added to an AWS S3 bucket has something called an `ETag` (Entity Tag) attributed to it. This is a hash of the file content without considering the meta data. This hash is not always md5.
@@ -26,7 +28,9 @@ This tool would perform `object-list-v2` calls on your S3 bucket. These calls ar
 
 ## Suggested Running Mechanism
 
-Modify `maxKeyToFetch` and `maxIterationCount` values to limit the maxinum bumber of `object-list-v2` calls that would be made by the tool. Before you do this, have a basic idea about how many objects would exist in the said bucket under the given prefix and modify the parameters accordingly.
+Modify `maxKeyToFetch` and `maxIterationCount` values to limit the maximum bumber of `object-list-v2` calls that would be made by the tool. These parameters would be found in the file `S3DeduplicationHelper.swift` which is present under `Sources/S3DeduplicationHelperCore/`. Before you do this, have a basic idea about how many objects would exist in the said bucket under the given prefix and modify the parameters accordingly.
+
+Also make sure you change the region to what's relevant to you when instantiating `s3` parameter in the file `S3DeduplicationHelper.swift` found under `Sources/S3DeduplicationHelperCore/`.
 
 Parameter | Description
 ----|----
@@ -99,6 +103,7 @@ Parameter | Description
 - [X] List all objects given a bucket and key prefix.
 - [X] Generate CSV forn posterity and out-of-tool use and analysis.
 - [X] Find duplicates in listed objets using `ETag`.
+- [ ] Support `maxKeyToFetch`, `maxIterationCount`, and `S3_REGION` as CLI input parameters instead of it being hard-coded.
 - [ ] Add tests.
 - [ ] Document code better.
 - [ ] Improvement to the exposed CLI.
