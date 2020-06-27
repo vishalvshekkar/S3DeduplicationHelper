@@ -15,6 +15,11 @@ This is what the [AWS doc](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTC
 
 This script first fetches the ETags of all the qualifying objects under the given key prefix. It then groups the keys based on exact match of their `ETag`s. It outputs the total number of keys found, the total number of unique keys (by omitting the keys with duplicate `ETag`s), and the highest duplicate count of any `ETag`. Beyond this, it generates a `.csv` file with all the data required to analyze this and stores it in the directory specific to the tool during invocation. The CSV file names are timestamped (with second precision) so you can run the tool multiple times without the risk of overwriting the older ones.
 
+## Features
+
+- This tool is able to handle large buckets without any issues. (Tested with over 1 Million objects.)
+- This tool writes into large CSV files without issues as the writes happen in batches. (Make sure you don't modify the file while the script is running to ensure integrity.)
+
 ## Warning ⚠️
 
 This tool would perform `object-list-v2` calls on your S3 bucket. These calls are chargeable by AWS. Beware.
@@ -95,8 +100,15 @@ Parameter | Description
 - [X] Generate CSV forn posterity and out-of-tool use and analysis.
 - [X] Find duplicates in listed objets using `ETag`.
 - [ ] Add tests.
+- [ ] Improvement to the exposed CLI.
+- [ ] Add help to the CLI.
 - [ ] Consider size of file as a parameter in finding duplicates
 - [ ] Allow a delete, move, or tag option on the duplicates found.
+
+## Contributions
+Any contribution to the tool is welcome and much-appreciated. Raise an issue or a merge-request with enough info for me to go on about it.
+As Dwight would say,
+>Keep it simple, Stupid.
 
 ## (personal use of the author)
 
