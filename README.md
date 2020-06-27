@@ -106,9 +106,12 @@ Parameter | Description
 - [ ] Allow a delete, move, or tag option on the duplicates found.
 
 ## Contributions
-Any contribution to the tool is welcome and much-appreciated. Raise an issue or a merge-request with enough info for me to go on about it.
+Any contribution to the tool is welcome and much-appreciated.
+No need for elaborate processes, raise an issue or a merge-request with enough info for me to go on about it.
+
 As Dwight would say,
->Keep it simple, Stupid.
+![Dwight_Says](/images/dwight-says.jpg)
+>KISS - Keep it simple stupid.
 
 ## (personal use of the author)
 
